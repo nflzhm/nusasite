@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const PINK = "#FF00A8";
 const PINK_LIGHT = "#FF44C0";
@@ -23,7 +24,7 @@ const styles = `
     transition: box-shadow 0.3s;
   }
   .ns-nav.scrolled { box-shadow: 0 4px 32px rgba(255,0,168,0.10); }
-  .ns-logo { display: flex; align-items: center; gap: 10px; }
+  .ns-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
   .ns-logo-icon {
     width: 40px; height: 40px; background: ${PINK}; border-radius: 10px;
     display: flex; align-items: center; justify-content: center;
@@ -64,7 +65,6 @@ const styles = `
     -webkit-mask-image: radial-gradient(ellipse 80% 100% at 80% 50%, black 30%, transparent 100%);
   }
   .ns-hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; }
-  .ns-hero-left {}
   .ns-pill {
     display: inline-flex; align-items: center; gap: 8px;
     background: ${PINK_BG}; color: ${PINK}; border: 1px solid rgba(255,0,168,0.2);
@@ -111,7 +111,7 @@ const styles = `
   .ns-trust-text { font-size: 0.85rem; color: #888; }
   .ns-trust-text strong { color: ${DARK}; font-weight: 700; }
 
-  /* HERO RIGHT — CARD MOCKUP */
+  /* HERO RIGHT */
   .ns-hero-right { position: relative; }
   .ns-mock-card {
     background: #fff; border-radius: 20px; padding: 1.5rem;
@@ -133,7 +133,6 @@ const styles = `
   .ns-mock-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
   .ns-mock-block { height: 50px; border-radius: 8px; background: #f5f5f5; }
   .ns-mock-block.pink { background: ${PINK_BG}; border: 1px solid rgba(255,0,168,0.2); }
-
   .ns-floating-badge {
     position: absolute; top: -20px; right: -20px; z-index: 3;
     background: ${PINK}; color: #fff; border-radius: 16px; padding: 0.75rem 1rem;
@@ -149,17 +148,13 @@ const styles = `
     display: flex; gap: 8px; align-items: center; font-size: 0.8rem; font-weight: 700; white-space: nowrap;
     animation: popIn 0.5s cubic-bezier(0.175,0.885,0.32,1.275) 1.2s both;
   }
-  .badge-icon { font-size: 1.1rem; }
 
   /* STATS */
   .ns-stats {
     background: ${DARK}; padding: 3rem 5%; display: grid;
     grid-template-columns: repeat(4,1fr); gap: 0;
   }
-  .ns-stat {
-    text-align: center; padding: 1.5rem 1rem;
-    border-right: 1px solid rgba(255,255,255,0.08);
-  }
+  .ns-stat { text-align: center; padding: 1.5rem 1rem; border-right: 1px solid rgba(255,255,255,0.08); }
   .ns-stat:last-child { border-right: none; }
   .ns-stat-num { font-size: 2.4rem; font-weight: 800; color: ${PINK}; display: block; letter-spacing: -0.03em; line-height: 1; margin-bottom: 0.5rem; }
   .ns-stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); letter-spacing: 0.04em; }
@@ -193,7 +188,7 @@ const styles = `
   .ns-process-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; position: relative; margin-top: 4rem; }
   .ns-process-steps::before { content: ''; position: absolute; top: 30px; left: 10%; right: 10%; height: 1px; background: linear-gradient(to right, transparent, rgba(255,0,168,0.4), transparent); z-index: 0; }
   .ns-step { text-align: center; padding: 0 1.5rem; position: relative; z-index: 1; }
-  .ns-step-num { width: 60px; height: 60px; border-radius: 50%; background: rgba(255,0,168,0.15); border: 1px solid rgba(255,0,168,0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.2rem; font-weight: 800; color: ${PINK}; position: relative; }
+  .ns-step-num { width: 60px; height: 60px; border-radius: 50%; background: rgba(255,0,168,0.15); border: 1px solid rgba(255,0,168,0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.2rem; font-weight: 800; color: ${PINK}; }
   .ns-step-title { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem; }
   .ns-step-desc { font-size: 0.8rem; color: rgba(255,255,255,0.45); line-height: 1.6; }
 
@@ -252,8 +247,7 @@ const styles = `
   /* FOOTER */
   .ns-footer { background: #111; padding: 4rem 5% 2rem; }
   .ns-footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
-  .ns-footer-brand { }
-  .ns-footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
+  .ns-footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; text-decoration: none; }
   .ns-footer-logo-icon { width: 36px; height: 36px; background: ${PINK}; border-radius: 9px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; font-size: 18px; }
   .ns-footer-logo-text { font-size: 1.2rem; font-weight: 800; color: #fff; letter-spacing: -0.03em; }
   .ns-footer-logo-text span { color: ${PINK}; }
@@ -307,28 +301,16 @@ const testimonials = [
 
 const pricingPlans = [
   {
-    name: "Rintis",
-    label: null,
-    price: "Rp 1,5 jt",
-    period: "bayar sekali · selesai 3 minggu kerja",
-    featured: false,
-    features: ["Landing page 1 halaman", "Desain custom", "Mobile responsive", "Form kontak", "SSL & domain .com", "Hosting 1 tahun"],
+    name: "Rintis", label: null, price: "Rp 1,5 jt", period: "bayar sekali · selesai 3 minggu kerja", featured: false,
+    features: ["Landing page 1 halaman","Desain custom","Mobile responsive","Form kontak","SSL & domain .com","Hosting 1 tahun"],
   },
   {
-    name: "Profesional",
-    label: "Paling Diminati",
-    price: "Rp 3,5 jt",
-    period: "bayar sekali · selesai 1 bulan kerja",
-    featured: true,
-    features: ["Company profile 5–8 halaman", "Desain premium custom", "Blog & artikel", "WhatsApp widget", "SEO on-page dasar", "Google Analytics", "Revisi tak terbatas", "Support 3 bulan"],
+    name: "Profesional", label: "Paling Diminati", price: "Rp 3,5 jt", period: "bayar sekali · selesai 1 bulan kerja", featured: true,
+    features: ["Company profile 5–8 halaman","Desain premium custom","Blog & artikel","WhatsApp widget","SEO on-page dasar","Google Analytics","Revisi tak terbatas","Support 3 bulan"],
   },
   {
-    name: "Toko Online",
-    label: null,
-    price: "Rp 6 jt",
-    period: "bayar sekali · selesai 1 bulan kerja",
-    featured: false,
-    features: ["Toko online penuh", "Payment gateway QRIS", "Manajemen produk mudah", "Order & stok otomatis", "Dashboard admin", "SEO on-page penuh", "Support 6 bulan"],
+    name: "Toko Online", label: null, price: "Rp 6 jt", period: "bayar sekali · selesai 1 bulan kerja", featured: false,
+    features: ["Toko online penuh","Payment gateway QRIS","Manajemen produk mudah","Order & stok otomatis","Dashboard admin","SEO on-page penuh","Support 6 bulan"],
   },
 ];
 
@@ -347,10 +329,10 @@ export default function NusaSite() {
 
       {/* NAV */}
       <nav className={`ns-nav${scrolled ? " scrolled" : ""}`}>
-        <div className="ns-logo">
+        <Link to="/" className="ns-logo">
           <div className="ns-logo-icon">N</div>
           <div className="ns-logo-text">nusa<span>site.</span></div>
-        </div>
+        </Link>
         <ul className="ns-nav-links">
           <li><a href="#layanan">Layanan</a></li>
           <li><a href="#proses">Proses</a></li>
@@ -393,9 +375,7 @@ export default function NusaSite() {
           </div>
 
           <div className="ns-hero-right">
-            <div className="ns-floating-badge">
-              Lebih dari 30+ Proyek selesai tepat waktu
-            </div>
+            <div className="ns-floating-badge">Lebih dari 30+ Proyek selesai tepat waktu</div>
             <div className="ns-mock-card">
               <div className="ns-mock-topbar">
                 <div className="ns-mock-dot" style={{background:"#ff5f57"}}/>
@@ -508,7 +488,6 @@ export default function NusaSite() {
       <section className="ns-testi" id="testimoni">
         <div className="ns-section-tag">✦ Testimoni</div>
         <h2 className="ns-section-title">Kata klien kami.</h2>
-        
         <div className="ns-testi-grid">
           {testimonials.map((t, i) => (
             <div key={i} className="ns-testi-card">
@@ -532,12 +511,8 @@ export default function NusaSite() {
         <h2>Siap punya website yang <span>benar-benar</span> bekerja?</h2>
         <p>Konsultasi gratis, tanpa komitmen. Ceritakan kebutuhan Anda dan kami siapkan solusi terbaik.</p>
         <div className="ns-cta-btns">
-          <a href="https://wa.me/082323360247" className="btn-wa">
-             Chat via WhatsApp
-          </a>
-          <a href="mailto:nzazhemi@gmail.com" className="btn-white">
-            Kirim Email
-          </a>
+          <a href="https://wa.me/082323360247" className="btn-wa">Chat via WhatsApp</a>
+          <a href="mailto:nzazhemi@gmail.com" className="btn-white">Kirim Email</a>
         </div>
       </section>
 
@@ -545,37 +520,37 @@ export default function NusaSite() {
       <footer className="ns-footer">
         <div className="ns-footer-top">
           <div className="ns-footer-brand">
-            <div className="ns-footer-logo">
+            <Link to="/" className="ns-footer-logo">
               <div className="ns-footer-logo-icon">N</div>
               <div className="ns-footer-logo-text">nusa<span>site.</span></div>
-            </div>
+            </Link>
             <p className="ns-footer-tagline">Jasa pembuatan website profesional untuk bisnis Indonesia yang ingin tumbuh.</p>
           </div>
           <div className="ns-footer-col">
             <h4>Layanan</h4>
             <ul>
-              <li><a href="#">Landing Page</a></li>
-              <li><a href="#">Company Profile</a></li>
-              <li><a href="#">Toko Online</a></li>
-              <li><a href="#">Custom Web App</a></li>
-              <li><a href="#">Maintenance</a></li>
+              <li><a href="#layanan">Landing Page</a></li>
+              <li><a href="#layanan">Company Profile</a></li>
+              <li><a href="#layanan">Toko Online</a></li>
+              <li><a href="#layanan">Custom Web App</a></li>
+              <li><a href="#layanan">Maintenance</a></li>
             </ul>
           </div>
           <div className="ns-footer-col">
             <h4>Info</h4>
             <ul>
-              <li><a href="#">Tentang Kami</a></li>
-              <li><a href="#">Portfolio</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">FAQ</a></li>
+              <li><Link to="/tentang-kami" style={{color:"rgba(255,255,255,0.4)",textDecoration:"none",fontSize:"0.875rem",transition:"color 0.2s"}} onMouseOver={e=>e.target.style.color="#FF00A8"} onMouseOut={e=>e.target.style.color="rgba(255,255,255,0.4)"}>Tentang Kami</Link></li>
+              <li><Link to="/portfolio" style={{color:"rgba(255,255,255,0.4)",textDecoration:"none",fontSize:"0.875rem",transition:"color 0.2s"}} onMouseOver={e=>e.target.style.color="#FF00A8"} onMouseOut={e=>e.target.style.color="rgba(255,255,255,0.4)"}>Portfolio</Link></li>
+              <li><Link to="/blog" style={{color:"rgba(255,255,255,0.4)",textDecoration:"none",fontSize:"0.875rem",transition:"color 0.2s"}} onMouseOver={e=>e.target.style.color="#FF00A8"} onMouseOut={e=>e.target.style.color="rgba(255,255,255,0.4)"}>Blog</Link></li>
+              <li><Link to="/faq" style={{color:"rgba(255,255,255,0.4)",textDecoration:"none",fontSize:"0.875rem",transition:"color 0.2s"}} onMouseOver={e=>e.target.style.color="#FF00A8"} onMouseOut={e=>e.target.style.color="rgba(255,255,255,0.4)"}>FAQ</Link></li>
             </ul>
           </div>
           <div className="ns-footer-col">
             <h4>Kontak</h4>
             <ul>
-              <li><a href="#">WhatsApp</a></li>
+              <li><a href="https://wa.me/082323360247">WhatsApp</a></li>
               <li><a href="#">Instagram</a></li>
-              <li><a href="#">Email</a></li>
+              <li><a href="mailto:nzazhemi@gmail.com">Email</a></li>
               <li><a href="#">Bumiayu, Indonesia</a></li>
             </ul>
           </div>
