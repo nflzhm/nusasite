@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const PINK = "#FF00A8";
@@ -171,6 +171,10 @@ const categories = ["Semua", ...faqData.map(g => g.cat)];
 export default function FAQ() {
   const [activecat, setActivecat] = useState("Semua");
   const [openIdx, setOpenIdx] = useState(null);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, []);
 
   const filtered = activecat === "Semua" ? faqData : faqData.filter(g => g.cat === activecat);
   const totalCounts = Object.fromEntries(faqData.map(g => [g.cat, g.items.length]));

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const PINK = "#FF00A8";
@@ -120,12 +121,12 @@ const styles = `
 `;
 
 const values = [
-  { icon: "💎", name: "Kualitas Tanpa Kompromi", desc: "Setiap baris kode dan piksel desain kami kerjakan dengan standar produksi yang tinggi." },
-  { icon: "⚡", name: "Tepat Waktu, Selalu", desc: "Kami menghargai waktu Anda. Deadline adalah janji, bukan sekadar estimasi." },
-  { icon: "🤝", name: "Transparan & Jujur", desc: "Tidak ada biaya tersembunyi. Kami komunikasikan semua proses secara terbuka." },
-  { icon: "🎯", name: "Fokus pada Hasil", desc: "Website yang kami bangun dirancang untuk menghasilkan, bukan sekadar terlihat bagus." },
-  { icon: "📱", name: "Mobile-First", desc: "Lebih dari 70% pengunjung datang dari HP — setiap proyek kami optimalkan untuk mobile." },
-  { icon: "🚀", name: "Terus Berkembang", desc: "Kami terus belajar teknologi terbaru agar klien selalu mendapat solusi terdepan." },
+  { name: "Kualitas Tanpa Kompromi", desc: "Setiap baris kode dan piksel desain kami kerjakan dengan standar produksi yang tinggi." },
+  { name: "Tepat Waktu, Selalu", desc: "Kami menghargai waktu Anda. Deadline adalah janji, bukan sekadar estimasi." },
+  { name: "Transparan & Jujur", desc: "Tidak ada biaya tersembunyi. Kami komunikasikan semua proses secara terbuka." },
+  { name: "Fokus pada Hasil", desc: "Website yang kami bangun dirancang untuk menghasilkan, bukan sekadar terlihat bagus." },
+  { name: "Mobile-First", desc: "Lebih dari 70% pengunjung datang dari HP — setiap proyek kami optimalkan untuk mobile." },
+  { name: "Terus Berkembang", desc: "Kami terus belajar teknologi terbaru agar klien selalu mendapat solusi terdepan." },
 ];
 
 const team = [
@@ -135,6 +136,10 @@ const team = [
 ];
 
 export default function TentangKami() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, []);
+
   return (
     <>
       <style>{styles}</style>
@@ -201,7 +206,6 @@ export default function TentangKami() {
           <div className="values-grid">
             {values.map((v, i) => (
               <div key={i} className="value-card">
-                <div className="value-icon">{v.icon}</div>
                 <h3 className="value-name">{v.name}</h3>
                 <p className="value-desc">{v.desc}</p>
               </div>

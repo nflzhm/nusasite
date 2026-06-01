@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const PINK = "#FF00A8";
@@ -140,6 +140,10 @@ const categories = ["Semua", "Landing Page", "Toko Online", "Company Profile", "
 
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState("Semua");
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, []);
 
   const filtered = activeFilter === "Semua"
     ? allProjects
