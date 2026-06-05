@@ -230,7 +230,7 @@ export default function Portfolio() {
         <h2>Proyek Anda bisa jadi<br /><span>yang berikutnya</span>.</h2>
         <p>Konsultasikan kebutuhan Anda sekarang, gratis dan tanpa komitmen.</p>
         <div className="page-cta-btns">
-          <a href="https://wa.me/082323360247" className="btn-pink">Mulai Proyek Sekarang</a>
+          <a href="https://wa.me/6282323360247?text=Halo%20saya%20ingin%20bertanya" className="btn-pink">Mulai Proyek Sekarang</a>
           <Link to="/#harga" className="btn-ghost-light">Lihat Paket Harga →</Link>
         </div>
       </section>

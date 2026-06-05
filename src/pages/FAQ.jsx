@@ -254,7 +254,11 @@ export default function FAQ() {
               <h3>Masih punya pertanyaan? 🙋</h3>
               <p>Tim kami siap membantu Anda. Hubungi kami langsung dan kami respons dalam 1 jam kerja.</p>
               <div className="faq-contact-btns">
-                <a href="https://wa.me/082323360247" className="btn-pink-sm">Chat WhatsApp</a>
+                <li>
+                <a href="https://wa.me/6282323360247?text=Halo%20saya%20ingin%20bertanya">
+                    WhatsApp
+                </a>
+            </li>
                 <a href="mailto:nzazhemi@gmail.com" className="btn-ghost-sm">Kirim Email</a>
               </div>
             </div>

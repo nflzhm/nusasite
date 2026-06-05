@@ -511,7 +511,7 @@ export default function NusaSite() {
         <h2>Siap punya website yang <span>benar-benar</span> bekerja?</h2>
         <p>Konsultasi gratis, tanpa komitmen. Ceritakan kebutuhan Anda dan kami siapkan solusi terbaik.</p>
         <div className="ns-cta-btns">
-          <a href="https://wa.me/082323360247" className="btn-wa">Chat via WhatsApp</a>
+          <a href="https://wa.me/6282323360247?text=Halo%20saya%20ingin%20bertanya" className="btn-wa">Chat via WhatsApp</a>
           <a href="mailto:nzazhemi@gmail.com" className="btn-white">Kirim Email</a>
         </div>
       </section>
@@ -548,7 +548,11 @@ export default function NusaSite() {
           <div className="ns-footer-col">
             <h4>Kontak</h4>
             <ul>
-              <li><a href="https://wa.me/082323360247">WhatsApp</a></li>
+              <li>
+                <a href="https://wa.me/6282323360247?text=Halo%20saya%20ingin%20bertanya">
+                    WhatsApp
+                </a>
+            </li>
               <li><a href="#">Instagram</a></li>
               <li><a href="mailto:nzazhemi@gmail.com">Email</a></li>
               <li><a href="#">Bumiayu, Indonesia</a></li>

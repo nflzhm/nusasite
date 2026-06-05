@@ -130,9 +130,9 @@ const values = [
 ];
 
 const team = [
-  { initials: "NZ", color: PINK, name: "Nzazhemi", role: "Founder & Lead Developer", bio: "Full-stack developer dengan 5+ tahun pengalaman membangun produk digital untuk bisnis Indonesia." },
-  { initials: "AR", color: "#cc0088", name: "Ari Rizky", role: "UI/UX Designer", bio: "Desainer berbasis riset yang menciptakan antarmuka intuitif dan estetis untuk konversi optimal." },
-  { initials: "YP", color: "#333", name: "Yogi Pratama", role: "Project Manager", bio: "Memastikan setiap proyek berjalan lancar, tepat waktu, dan sesuai ekspektasi klien." },
+  { initials: "NZ", color: PINK, name: "Nifail Zazhemi", role: "Founder & Lead Developer", bio: "Full-stack developer dengan 5+ tahun pengalaman membangun produk digital untuk bisnis Indonesia." },
+  { initials: "DR", color: "#cc0088", name: "Devan Rizky Saputra Zebua", role: "UI/UX Designer", bio: "Desainer berbasis riset yang menciptakan antarmuka intuitif dan estetis untuk konversi optimal." },
+  { initials: "RB", color: "#333", name: "Raesya Bahar Apriliana", role: "Project Manager", bio: "Memastikan setiap proyek berjalan lancar, tepat waktu, dan sesuai ekspektasi klien." },
 ];
 
 export default function TentangKami() {
@@ -182,7 +182,7 @@ export default function TentangKami() {
           </div>
           <div className="about-story-visual">
             <div className="about-card-main">
-              <div className="about-card-year">2022</div>
+              <div className="about-card-year">2023</div>
               <div className="about-card-label">Tahun berdiri</div>
               <div className="about-card-desc">Dimulai dari satu laptop dan semangat untuk membantu bisnis lokal tumbuh secara digital.</div>
             </div>
