@@ -135,7 +135,7 @@ const values = [
 
 const team = [
   { initials: "NZ", color: PINK, name: "Nifail Zazhemi, S. Kom.", role: "Founder & Lead Developer", bio: "Full-stack developer dengan pengalaman membangun produk digital untuk bisnis Indonesia." },
-  { initials: "AM", color: "#cc0088", name: "Alpacino Ceanturi Milano, S. Kom.", role: "Manager Departemen Web Development", bio: "Memimpin tim pengembangan web mulai dari perencanaan teknis hingga proyek siap rilis." },
+  { initials: "AM", color: "#cc0088", name: "Al Pacino Centaury Milano, S. Kom.", role: "Manager Departemen Web Development", bio: "Memimpin tim pengembangan web mulai dari perencanaan teknis hingga proyek siap rilis." },
   { initials: "AN", color: "#333", name: "Azam Nabkhan, S.I.Kom.", role: "Manager Departemen Marketing", bio: "Mengelola strategi pemasaran untuk memperluas jangkauan dan pertumbuhan klien NusaSite." },
   { initials: "AR", color: "#7a1f5c", name: "Arief Rakhman Hakim, S.I.Kom.", role: "Manager Departemen Humas", bio: "Menjaga komunikasi dan hubungan baik dengan klien serta mitra NusaSite." },
 ];
