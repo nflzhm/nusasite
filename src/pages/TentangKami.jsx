@@ -82,7 +82,7 @@ const styles = `
   /* TEAM */
   .about-team { padding: 6rem 5%; background: #fff; }
   .about-team-inner { max-width: 1200px; margin: 0 auto; }
-  .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
   .team-card { background: #fafafa; border: 1.5px solid #f0f0f0; border-radius: 20px; padding: 2rem; text-align: center; transition: border-color 0.25s, transform 0.25s; }
   .team-card:hover { border-color: rgba(255,0,168,0.3); transform: translateY(-4px); }
   .team-avatar { width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; font-weight: 800; color: #fff; }
@@ -111,6 +111,10 @@ const styles = `
   .footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: ${PINK}; }
 
+  @media (max-width: 992px) {
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
   @media (max-width: 768px) {
     .ns-nav-links { display: none; }
     .about-story-inner { grid-template-columns: 1fr; gap: 3rem; }
@@ -130,9 +134,10 @@ const values = [
 ];
 
 const team = [
-  { initials: "NZ", color: PINK, name: "Nifail Zazhemi", role: "Founder & Lead Developer", bio: "Full-stack developer dengan 5+ tahun pengalaman membangun produk digital untuk bisnis Indonesia." },
-  { initials: "DR", color: "#cc0088", name: "Devan Rizky Saputra Zebua", role: "UI/UX Designer", bio: "Desainer berbasis riset yang menciptakan antarmuka intuitif dan estetis untuk konversi optimal." },
-  { initials: "RB", color: "#333", name: "Raesya Bahar Apriliana", role: "Project Manager", bio: "Memastikan setiap proyek berjalan lancar, tepat waktu, dan sesuai ekspektasi klien." },
+  { initials: "NZ", color: PINK, name: "Nifail Zazhemi, S. Kom.", role: "Founder & Lead Developer", bio: "Full-stack developer dengan pengalaman membangun produk digital untuk bisnis Indonesia." },
+  { initials: "AM", color: "#cc0088", name: "Alpacino Ceanturi Milano, S. Kom.", role: "Backend Developer", bio: "Mengembangkan sistem dan arsitektur backend yang stabil dan aman untuk setiap proyek." },
+  { initials: "AN", color: "#333", name: "Azam Nabkhan, S.I.Kom.", role: "UI/UX Designer", bio: "Merancang antarmuka yang intuitif dan estetis untuk pengalaman pengguna terbaik." },
+  { initials: "AR", color: "#7a1f5c", name: "Arief Rakhman Hakim, S.I.Kom.", role: "Project Manager", bio: "Memastikan setiap proyek berjalan lancar, tepat waktu, dan sesuai ekspektasi klien." },
 ];
 
 export default function TentangKami() {
